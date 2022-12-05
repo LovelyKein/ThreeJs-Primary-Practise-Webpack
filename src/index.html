@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geometries</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    html,
+    body {
+      overflow: hidden;
+    }
+
+    .box {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .cover {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background-color: #0c0e13;
+      z-index: 10;
+      transition: all 0.8s;
+      opacity: 1;
+    }
+
+    .cover>p {
+      font-family: 'Optima';
+      text-align: center;
+      color: #ffffff;
+      font-size: 18px;
+      position: absolute;
+      top: 44%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .cover > span {
+      width: 0vw;
+      height: 2px;
+      background-color: #13151f;
+      position: absolute;
+      left: 0;
+      top: 50%;
+    }
+
+    @keyframes shine {
+      0% {
+        background-color: #929ab4;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+      }
+
+      50% {
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 1);
+      }
+
+      100% {
+        background-color: #929ab4;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+      }
+    }
+
+    .cover > span::after {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: #929ab4;
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      animation: shine 1.5s infinite;
+    }
+
+    .loaded {
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <div class="cover">
+    <p>0%</p>
+    <span></span>
+  </div> -->
+  <div class="box">
+    <canvas id="display"></canvas>
+  </div>
+  <script src="https://cdn.bootcdn.net/ajax/libs/three.js/r128/three.js"></script>
+</body>
+
+</html>
